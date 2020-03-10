@@ -13,7 +13,7 @@ const inquirer = require("inquirer");
 inquirer.prompt([
     {
         type:"input",
-        name:"name",
+        name:"Name",
         message:"What is your name?"
     },
     {
@@ -32,5 +32,8 @@ inquirer.prompt([
         message:"Provide Your Email."
     }
     ]).then(function(response){
-        console.log(response)
+        const name=(response.name);
+        const job= (response.Occupation);
+        const ID= (response.ID);
+        const email= (response.Email);
     })
