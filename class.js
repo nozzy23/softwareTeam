@@ -5,20 +5,20 @@ class employee {
         this.email= email;
     };
     getName(){
-
+        console.log(this.name)
     };
     getID(){
-
+        console.log(this.id)
     };
     getEmail(){
-
+        console.log(this.email)
     };
     getjob(){
-
+        console.log(this.name)
     };
 };
 
-class Manager extends employee {
+/*class Manager extends employee {
     constructor(office){
         super(name, email, id);
         this.office= office
@@ -53,4 +53,4 @@ class intern extends employee{
     getRole(){
 
     };
-};
+};*/
