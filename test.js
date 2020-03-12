@@ -6,64 +6,106 @@ const fs = require("fs");
 const OUTPUT_DIR = path.resolve(__dirname, "output")
 const outputPath = path.join(OUTPUT_DIR, "team.html");
 
-
-inquirer.prompt([
-    {
-        type:"input",
-        name:"name",
-        message:"What is your first name?"
-    },
-    {
-        type:"checkbox",
-        name:"Occupation",
-        choices:["Manager", "Engineer", "Intern"]
-    },{
-        type:"confirm",
-        name:"check",
-        message: "Are you a Manager?"
-    },
-    {
-        type:"input",
-        name:"office",
-        message:"If you are a Manager, where is your office?"
-    },
-    {
-        type:"confirm",
-        name:"check",
-        message: "Are you a Engineer?"
-    },
-    {
-        type:"input",
-        name:"gitUser",
-        message:"If you are a Engineer, what is your Github?"
-    },{
-        type:"confirm",
-        name:"check",
-        message: "Are you a Intern?"
-    },
-    {
-        type:"input",
-        name:"school",
-        message:"If you are a Intern, What school do you attend?"
-    },
-    {
-        type:"input",
-        name:"id",
-        message:"ID Number?"
-    },
-    {
-        type:"input",
-        name:"Email",
-        message:"Provide Your Email."
-    }
-    ]).then(function(response){
+const questions = {
+    manager= [
+        {
+            type:"input",
+            name:"Mananame",
+            message:"What is your first name?"
+        },
+        {
+            type:"confirm",
+            name:"Manacheck",
+            message: "Are you a Manager?"
+        },
+        {
+            type:"input",
+            name:"office",
+            message:"If you are a Manager, where is your office?"
+        },
+        {
+            type:"input",
+            name:"id",
+            message:"ID Number?"
+        },
+        {
+            type:"input",
+            name:"Email",
+            message:"Provide Your Email."
+        }
+    ],
+    engineer: [
+        {
+            type:"input",
+            name:"Engianame",
+            message:"What is your first name?"
+        },
+        {
+            type:"confirm",
+            name:"Engicheck",
+            message: "Are you a Engineer?"
+        },
+        {
+            type:"input",
+            name:"gitUser",
+            message:"If you are a Engineer, what is your Github?"
+        },
+        {
+            type:"input",
+            name:"id",
+            message:"ID Number?"
+        },
+        {
+            type:"input",
+            name:"Email",
+            message:"Provide Your Email."
+        }
+    ],
+    intern: [
+        {
+            type:"input",
+            name:"Intername",
+            message:"What is your first name?"
+        },
+        {
+            type:"confirm",
+            name:"Intercheck",
+            message: "Are you a Intern?"
+        },
+        {
+            type:"input",
+            name:"school",
+            message:"If you are a Intern, What school do you attend?"
+        },
+        {
+            type:"input",
+            name:"id",
+            message:"ID Number?"
+        },
+        {
+            type:"input",
+            name:"Email",
+            message:"Provide Your Email."
+        }
+    ]
+}
+inquirer.prompt(questions.manager).then(function(response){
         const name=(response.name);
         const job= (response.Occupation);
         const id= (response.id);
         const email= (response.Email);
         const office= (response.office);
         const gitHubUser= (response.gitUser);
-        const university = (response.school)
+        const university = (response.school);
+
+inquirer.prompt(questions.manager).then(function(response){
+            const name=(response.name);
+            const job= (response.Occupation);
+            const id= (response.id);
+            const email= (response.Email);
+            const office= (response.office);
+            const gitHubUser= (response.gitUser);
+            const university = (response.school);
 
         class employee {
             constructor(name, email, id){
@@ -81,6 +123,8 @@ inquirer.prompt([
                 this.job = job
             };
         };
+
+
 
         class Manager extends employee {
             constructor(office){
@@ -231,6 +275,5 @@ inquirer.prompt([
             console.log("success")
         }
     })
-
 
  });

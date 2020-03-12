@@ -18,7 +18,7 @@ class employee {
     };
 };
 
-/*class Manager extends employee {
+class Manager extends employee {
     constructor(office){
         super(name, email, id);
         this.office= office
@@ -53,4 +53,4 @@ class intern extends employee{
     getRole(){
 
     };
-};*/
+};
